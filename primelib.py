@@ -59,25 +59,4 @@ def primesLessThan(n):
 			if oddsList[x] == 1:
 				primes.append(2*x+3)
 		return primes
-
-
-def primegen(primes=[]):
-	yield 2
-	yield 3
-	x = 6
-	# if primes = []:
-	while True:
-		if isPrime(x-1):
-			yield x - 1
-		if isPrime(x+1):
-			yield x + 1
-		x += 6
-	# else:
-	# 	return
-
-#The point of this primes parameter is to perhaps check
-#if x is in a list of primes we've already computed, instead
-#of doing trial division over and over again
-pg = primegen
-gen = primegen
-
+	
