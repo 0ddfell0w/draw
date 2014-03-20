@@ -71,7 +71,7 @@ def nextPermutation(iterable):
 			return tuple(nextPermutation([x for x in iterable]))
 		else:
 			print "can't give next permutation for this type"
-			exit(0)
+			exit(1)
 	length = len(iterable)
 	suffixIndex = length - 2
 	while suffixIndex > -1 and iterable[suffixIndex] >= iterable[suffixIndex+1]:
