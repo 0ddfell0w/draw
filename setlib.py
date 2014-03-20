@@ -64,8 +64,14 @@ def nextPermutationString(strng):
 
 #returns -1 when no more permutations
 def nextPermutation(iterable):
-	if isinstance(iterable, (str, unicode)):
-		return nextPermutationString(iterable)
+	if not isinstance(iterable,list):
+		if isinstance(iterable, (str, unicode)):
+			return nextPermutationString(iterable)
+		if isinstance(iterable,tuple):
+			return tuple(nextPermutation([x for x in iterable]))
+		else:
+			print "can't give next permutation for this type"
+			exit(0)
 	length = len(iterable)
 	suffixIndex = length - 2
 	while suffixIndex > -1 and iterable[suffixIndex] >= iterable[suffixIndex+1]:
