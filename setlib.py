@@ -92,8 +92,12 @@ def nextPermutation(iterable):
 	#return ascending prefix plus the descending suffix reversed
 	return iterable[0:prefixEnding+1] + iterable[prefixEnding+1:][::-1]
 
-def nextPermutationGenerator(iterable,stringFlag=0,tupleFlag=0):
+#Seriously consider how stringFlag and tupleFlag should be handled.
+#Do they need to be keyword arguments?
+def nextPermutationGenerator(iterable):
 	yield iterable #include self
+	stringFlag = 0
+	tupleFlag = 0
 	if not isinstance(iterable,list):
 		if isinstance(iterable, (str, unicode)):
 			stringFlag = 1
@@ -115,3 +119,4 @@ def nextPermutationGenerator(iterable,stringFlag=0,tupleFlag=0):
 		else:
 			yield next
 		iterable = next
+
