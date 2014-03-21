@@ -92,34 +92,26 @@ def nextPermutation(iterable):
 	#return ascending prefix plus the descending suffix reversed
 	return iterable[0:prefixEnding+1] + iterable[prefixEnding+1:][::-1]
 
-def nextPermutationGenerator(iterable):
+def nextPermutationGenerator(iterable,stringFlag=0,tupleFlag=0):
+	yield iterable #include self
 	if not isinstance(iterable,list):
-		# if isinstance(iterable, (str, unicode)):
-		# 	return nextPermutationString(iterable)
-		# if isinstance(iterable,tuple):
-		# 	return tuple(nextPermutation([x for x in iterable]))
-		# else:
+		if isinstance(iterable, (str, unicode)):
+			stringFlag = 1
+		elif isinstance(iterable,tuple):
+			tupleFlag = 1
+		else:
 			print "can't give next permutation for this type"
 			exit(1)
-	while iterable != -1:
-		length = len(iterable)
-		suffixIndex = length - 2
-		while suffixIndex > -1 and iterable[suffixIndex] >= iterable[suffixIndex+1]:
-			suffixIndex -= 1
-		if suffixIndex < 0: #happens when iterable is reverse sorted, or has length 0
+
+	iterable = list(iterable)	
+	while True:
+		next = nextPermutation(iterable)
+		if next == -1:
 			return
-		prefixEnding = suffixIndex
-		suffixIndex += 1
-		while suffixIndex < length and iterable[suffixIndex] > iterable[prefixEnding]:
-			suffixIndex+=1
-		suffixIndex -= 1
-
-		#Swap prefix-ending for smallest elt bigger than prefix-ending in the suffix
-		temp = iterable[suffixIndex]
-		iterable[suffixIndex] = iterable[prefixEnding]
-		iterable[prefixEnding] = temp
-
-		#return ascending prefix plus the descending suffix reversed
-		nextPerm = iterable[0:prefixEnding+1] + iterable[prefixEnding+1:][::-1]
-		yield nextPerm
-		iterable = nextPerm
+		if stringFlag == 1:
+			yield ''.join(next)
+		elif tupleFlag == 1:
+			yield tuple(next)
+		else:
+			yield next
+		iterable = next
