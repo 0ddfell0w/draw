@@ -10,7 +10,7 @@ def isPrime(n):
 		i += 2
 	return True
 
-
+#implements a half sieve. OddsList represents integers from [3,n)
 def primesLessThan(n):
 	if n < 3:
 		return []
@@ -21,6 +21,7 @@ def primesLessThan(n):
 		
 		value = 3
 		idx = lambda value: (value - 3) / 2
+
 		while value < n:
 			if oddsList[idx(value)] == 0:
 				pass
@@ -36,7 +37,10 @@ def primesLessThan(n):
 
 primes = primesLessThan
 
+#implements a half sieve.
 def primesLessThanGenerator(n=1000):
+	if n < 0:
+		n *= -1
 	if n < 3:
 		return
 	else:
@@ -62,3 +66,23 @@ def primesLessThanGenerator(n=1000):
 
 primegen = primesLessThanGenerator
 gen = primesLessThanGenerator
+
+def primeFactorization(n):
+	pfactors = []
+	if n < 0:
+		n *= -1	
+	if n == 1:
+		return pfactors
+	# for x in primesLessThanGenerator(n+1):
+	primes = primesLessThanGenerator(n+1)
+	while True:
+		nextPrime = next(primes)
+		while n % nextPrime == 0:
+			pfactors.append(nextPrime)
+			n /= nextPrime
+		if n == 1:
+			return pfactors
+
+factorization = primeFactorization
+factorize = factorization
+
