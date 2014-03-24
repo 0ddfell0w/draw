@@ -45,18 +45,18 @@ def primesLessThan(n):
 			if oddsList[index] == 0:
 				pass
 			else:
-				if isPrime(realValue):
-					valueRunner = realValue*realValue				
+				# if isPrime(realValue):
+				valueRunner = realValue*realValue				
 				#This isn't obvious, but we've already dealt with
 				#any multiples of realValue below realValue squared
-					
-					while valueRunner < n:
-						indexRunner = (valueRunner-3)/2
-						oddsList[indexRunner] = 0
-						valueRunner += 2*realValue
+				while valueRunner < n:
+					indexRunner = (valueRunner-3)/2
+					oddsList[indexRunner] = 0
+					valueRunner += 2*realValue
 			realValue += 2
 		for x in range(0,oddsListsize-1):
 			if oddsList[x] == 1:
 				primes.append(2*x+3)
-		return primes
-	
+		return primes	
+
+
