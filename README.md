@@ -3,7 +3,7 @@ pybrary
 
 python library for oft-helpful functions
 
-function definitions as of 3/23/2014
+function definitions as of 3/24/2014
 
 
 bitlib: countBits(x)
@@ -20,6 +20,8 @@ primelib: isPrime(n)
 primelib: primesLessThan(n)
 
 primelib: primesLessThanGenerator(n=1000)
+
+primelib: primeFactorization(n)
 
 
 setlib: allMasksSizeK(k,arraysize)
