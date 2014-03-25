@@ -1,3 +1,6 @@
+from numlib import modularExponentiation
+from random import randrange
+
 def isPrime(n):
 	if n < 2:
 		return False
@@ -85,4 +88,22 @@ def primeFactorization(n):
 
 factorization = primeFactorization
 factorize = factorization
+
+# Returns True if candidate is probably prime
+# Returns False if candidate is definitely composite
+def fermatPrimeTest(candidate,trials=3):
+	if candidate < 4:
+		return (candidate > 1)
+	else:
+		for trial in xrange(trials):
+			randomBase = randrange(2,candidate)
+			exponent = candidate - 1
+			modulus = candidate
+			if modularExponentiation(randomBase,exponent,modulus) != 1:
+				return False
+		return True
+
+
+fermat = fermatPrimeTest
+isProbablyPrime = fermatPrimeTest
 
