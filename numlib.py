@@ -17,6 +17,25 @@ def eulersTotient(n):
 		n -= (n / x)
 	return n
 
-
 totient = eulersTotient
 phi = eulersTotient
+
+def modularExponentiation(base,exponent,modulus):
+	#normalize base
+	base %= modulus
+	if base < 0:
+		base = modulus - base
+
+	powerOfBase = base
+	product = 1
+	while exponent > 0:
+		if (exponent & 1) == 1:
+			product *= powerOfBase
+			product %= modulus
+
+		exponent = (exponent >> 1)
+		powerOfBase = (powerOfBase*powerOfBase)%modulus
+	return product
+
+modExp = modularExponentiation
+expMod = modularExponentiation
