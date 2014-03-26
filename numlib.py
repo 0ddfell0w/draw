@@ -1,4 +1,3 @@
-# from primelib import factorize
 import primelib
 
 def greatestCommonDenominator(a,b):
@@ -43,15 +42,14 @@ def eulersTotient(n):
 totient = eulersTotient
 phi = eulersTotient
 
-print phi(11)
 
 #modular exponentiation by squaring
 def modularExponentiation(base,exponent,modulus):
+	
 	#normalize base
 	base %= modulus
-	if base < 0:
-		base = modulus - base
-
+	print base,
+	print base
 	powerOfBase = base
 	product = 1
 	while exponent > 0:
