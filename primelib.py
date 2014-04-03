@@ -1,4 +1,4 @@
-from numlib import modularExponentiation
+import numlib
 from random import randrange
 
 def isPrime(n):
@@ -21,7 +21,7 @@ def primesLessThan(n):
 		primes = [2]
 		oddsListsize = n/2
 		oddsList = [1]*oddsListsize
-		
+
 		value = 3
 		idx = lambda value: (value - 3) / 2
 
@@ -30,13 +30,13 @@ def primesLessThan(n):
 				pass
 			else:
 				primes.append(value)
-				valueRunner = value*value				
+				valueRunner = value*value
 				while valueRunner < n:
 					oddsList[idx(valueRunner)] = 0
 					valueRunner += 2*value
 			value += 2
 
-		return primes	
+		return primes
 
 primes = primesLessThan
 
@@ -65,7 +65,7 @@ def primesLessThanGenerator(n=1000):
 					oddsList[idx(valueRunner)] = 0
 					valueRunner += 2 * value
 			value += 2
-		return 
+		return
 
 primegen = primesLessThanGenerator
 gen = primesLessThanGenerator
@@ -73,10 +73,9 @@ gen = primesLessThanGenerator
 def primeFactorization(n):
 	pfactors = []
 	if n < 0:
-		n *= -1	
+		n *= -1
 	if n == 1:
 		return pfactors
-	# for x in primesLessThanGenerator(n+1):
 	primes = primesLessThanGenerator(n+1)
 	while True:
 		nextPrime = next(primes)
@@ -87,23 +86,24 @@ def primeFactorization(n):
 			return pfactors
 
 factorization = primeFactorization
-factorize = factorization
+factorize = primeFactorization
 
 # Returns True if candidate is probably prime
 # Returns False if candidate is definitely composite
 def fermatPrimeTest(candidate,trials=3):
 	if candidate < 4:
 		return (candidate > 1)
+	elif candidate & 1 == 0:
+		return False
 	else:
 		for trial in xrange(trials):
 			randomBase = randrange(2,candidate)
 			exponent = candidate - 1
 			modulus = candidate
-			if modularExponentiation(randomBase,exponent,modulus) != 1:
+			if numlib.modularExponentiation(randomBase,exponent,modulus) != 1:
 				return False
 		return True
 
 
 fermat = fermatPrimeTest
 isProbablyPrime = fermatPrimeTest
-
