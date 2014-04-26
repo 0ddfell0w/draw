@@ -7,11 +7,11 @@ Count raised bits in integer x
 		if (x & 1) == 1:
 			ans += 1
 		x = x >> 1
-	return ans 
+	return ans
 
 def leastSignificant1(x):
 '''
-return power of 2 aligned with least significant raised bit 
+return power of 2 aligned with least significant raised bit
 '''
 	return x & (~x + 1)
 
@@ -33,8 +33,8 @@ def nextGreatestSameBitcount(v):
 '''
 Return next greatest integer with same number of raised bits
 '''
-	t = (v | (v - 1)) + 1;  
-	w = t | ((((t & -t) / (v & -v)) >> 1) - 1); 
+	t = (v | (v - 1)) + 1;
+	w = t | ((((t & -t) / (v & -v)) >> 1) - 1);
 	#http://graphics.stanford.edu/~seander/bithacks.html
 	# print bin(v),bin(w)#,bin(t)
 	return w
