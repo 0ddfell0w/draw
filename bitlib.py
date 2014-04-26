@@ -1,7 +1,7 @@
 def countBits(x):
-'''
-Count raised bits in integer x
-'''
+	'''
+	Return number of raised bits in integer x
+	'''
 	ans = 0
 	while x > 0:
 		if (x & 1) == 1:
@@ -10,9 +10,9 @@ Count raised bits in integer x
 	return ans
 
 def leastSignificant1(x):
-'''
-return power of 2 aligned with least significant raised bit
-'''
+	'''
+	return power of 2 aligned with least significant raised bit
+	'''
 	return x & (~x + 1)
 
 # def leastSignificant0(x):
@@ -20,9 +20,9 @@ return power of 2 aligned with least significant raised bit
 
 
 def altCountBits(x):
-'''
-Count raised bits in integer x
-'''
+	'''
+	Count raised bits in integer x
+	'''
 	ans = 0
 	while x > 0:
 		ans += 1
@@ -30,9 +30,9 @@ Count raised bits in integer x
 	return ans
 
 def nextGreatestSameBitcount(v):
-'''
-Return next greatest integer with same number of raised bits
-'''
+	'''
+	Return next greatest integer with same number of raised bits
+	'''
 	t = (v | (v - 1)) + 1;
 	w = t | ((((t & -t) / (v & -v)) >> 1) - 1);
 	#http://graphics.stanford.edu/~seander/bithacks.html
