@@ -2,6 +2,9 @@ import numlib
 from random import randrange
 
 def isPrime(n):
+'''
+True if n is prime, else False
+'''
 	if n < 2:
 		return False
 	if n%2 == 0:
@@ -13,8 +16,10 @@ def isPrime(n):
 		i += 2
 	return True
 
-#implements a half sieve. OddsList represents integers from [3,n)
 def primesLessThan(n):
+'''
+Returns a list of primes less than n. Implements a half sieve
+'''
 	if n < 3:
 		return []
 	else:
@@ -42,6 +47,9 @@ primes = primesLessThan
 
 #implements a half sieve.
 def primesLessThanGenerator(n=1000):
+'''
+Generator for primes less than n using half sieve, n defaults to 1000
+'''
 	if n < 0:
 		n *= -1
 	if n < 3:
@@ -91,6 +99,9 @@ factorize = primeFactorization
 # Returns True if candidate is probably prime
 # Returns False if candidate is definitely composite
 def fermatPrimeTest(candidate,trials=3):
+'''
+Probabilistic primality test (Fermat's) using modular exponentiation. Returns False if definitely composite, True if probably prime.
+'''
 	if candidate < 4:
 		return (candidate > 1)
 	elif candidate & 1 == 0:

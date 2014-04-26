@@ -1,6 +1,9 @@
 import bitlib
 
 def allMasksSizeK(k,arraysize):
+'''
+Returns a list of arraysize-bit integers with k bits raised
+'''
 	masks = []
 	mask = (1 << k)-1
 	while mask <= (1<<arraysize):
@@ -9,6 +12,9 @@ def allMasksSizeK(k,arraysize):
 	return masks
 
 def subset(array,mask):
+'''
+Returns a list with the subset of an array represented by a mask (where a raised x'th bit in the mask represents inclusion of the x'th element in the subset)
+'''
 	i = 0
 	subset = []
 	while mask > 0:
@@ -20,6 +26,9 @@ def subset(array,mask):
 
 #All non-empty subsets
 def allSubsets(array, nullSet=False):
+'''
+Returns powerset (all subsets) of the given array as a list of lists. Set kwarg nullSet True to include empty set as an empty list.
+'''
 	length = len(array)
 	mask = (1 << length) - 1
 	subsets = []
@@ -33,6 +42,9 @@ powerset = allSubsets
 pset = allSubsets
 
 def allSubsetsSizeK(array,k):
+'''
+Return a list of all subsets with k elements.
+'''
 	leng = len(array)
 	if k < 1 or k > leng:
 		return []
@@ -47,6 +59,9 @@ ksubset = allSubsetsSizeK
 subsetk = allSubsetsSizeK
 
 def allSubsetsKorSmaller(array,k):
+'''
+Return a list of all subsets with k or fewer elements.
+'''
 	subsets = []
 	if k > len(array) or k < 1:
 		return []
@@ -57,6 +72,9 @@ def allSubsetsKorSmaller(array,k):
 
 #wrapper function, strings don't support swapping elements
 def nextPermutationString(strng):
+'''
+Return lexicographically-next string consisting of the same characters, -1 if there are no more permutations.
+'''
 	iterable = [c for c in strng]
 	ans = nextPermutation(iterable)
 	if ans == -1:
@@ -66,6 +84,9 @@ def nextPermutationString(strng):
 
 #returns -1 when no more permutations
 def nextPermutation(iterable):
+'''
+Return next permuation of iterable, -1 if there are no more permutations
+'''
 	if not isinstance(iterable,list):
 		
 		if isinstance(iterable, (str, unicode)):
@@ -117,6 +138,9 @@ def nextPermutation(iterable):
 #Seriously consider how stringFlag and tupleFlag should be handled.
 #Do they need to be keyword arguments?
 def nextPermutationGenerator(iterable, allPermutations=False):
+'''
+Generator function for getting nextPermutation of iterable. Set kwarg allPermutations to True for all permutations starting from sorted order.
+'''
 	stringFlag = False
 	tupleFlag = False
 	if not isinstance(iterable,list):
