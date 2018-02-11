@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  width: 1000px;
+  height: 1000px;
+  background-color: lightgrey;
+}
+
+.round {
+  border-radius: 100%;
+}
+
+.face {
+  background-color: snow;
+  position: relative;
+  margin-left: 35px;
+  margin-bottom: -30px;
+  height: 175px;
+  width: 175px;
+}
+
+.body {
+  background-color: snow;
+  position: relative;
+  height: 250px;
+  width: 250px;
+}
+
+.base {
+  background-color: snow;
+  margin-top: -90px;
+  margin-left: -20px;
+  height: 300px;
+  width: 300px;
+}
+
+.center {
+  margin-left: 20%;
+  width: 60%;
+}
+
+.eyes {
+  left: 30%;
+  top: 20%;
+  position: absolute;
+  justify-content: center;
+  text-align: center;
+}
+
+.eye {
+  background-color: black;
+  opacity: .7;
+  display: inline-block;
+  min-height: 15px;
+  min-width: 15px;
+  height: 20%;
+  width: 20%;
+  margin-right: 8px;
+  border: black thin dotted;
+}
+
+.nose {
+  position: absolute;
+  left: 0%;
+  top: 35%;
+  width: 0;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-bottom: 25px solid orangered;
+  border-bottom-left-radius: 70%;
+}
+
+.mouth {
+  left: 30%;
+  top: 60%;
+  position: absolute;
+  border-radius: 10% 30% 50% 70%;
+  border: lightgrey thin solid;
+  background-color: pink;
+  width: 45px;
+  height: 30px;
+  z-index: 1;
+}
+
+.btns {
+  position: absolute;
+  left: 45%;
+  top: 5%;
+}
+
+.btn {
+  margin-bottom: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: black;
+}
+
+</style>
+<head>
+  <meta charset="UTF-8">
+  <title>Greedy Snowman</title>
+</head>
+<body>
+  <div id="snowman" class="center">
+    <h1>Give me all your money</h1>
+    <div class="round face">
+      <div class="center">
+        <div class="eyes">
+          <div class="round eye"></div>
+          <div class="round eye"></div>
+        </div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+      </div>
+    </div>
+    <div class="round body">
+      <div class="center">
+        <div class="btns">
+          <div class="round btn"></div>
+          <div class="btn"></div>
+          <div class="round btn"></div>
+          <div class="btn"></div>
+          <div class="round btn"></div>
+          <div class="btn"></div>
+          <div class="round btn"></div>
+          <div class="btn"></div>
+          <div class="round btn"></div>
+          <div class="btn"></div>
+          <div class="round btn"></div>
+        </div>
+      </div>
+    </div>
+    <div class="round base"></div>
+  </div>
+</body>
+
+</html>
