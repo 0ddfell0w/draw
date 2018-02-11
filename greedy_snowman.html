@@ -7,6 +7,11 @@
     background-color: lightgrey;
   }
 
+  #caption {
+    font-weight: bold;
+    font-family: monospace;
+  }
+
   .round {
     border-radius: 100%;
   }
@@ -96,34 +101,18 @@
     background-color: black;
   }
 </style>
-<script>
-  function init() {
-    document.body.addEventListener('click', wink, false);
-  }
-
-  function wink() {
-    let eye = document.getElementsByClassName('winks')[0];
-    if (eye) {
-      minHeightBefore = eye.style.minHeight;
-      eye.style.minHeight = 0;
-      setTimeout(() => { eye.style.minHeight = minHeightBefore; }, 250);
-    }
-  }
-
-  window.addEventListener('load', init, false);
-</script>
 <head>
   <meta charset="UTF-8">
   <title>Greedy Snowman</title>
 </head>
 <body>
   <div id="snowman" class="center">
-    <h1>Give me all your money</h1>
+    <h1 id="caption">Give me all your money</h1>
     <div class="round face">
       <div class="center">
         <div class="eyes">
           <div class="round eye"></div>
-          <div class="round eye winks"></div>
+          <div class="round eye"></div>
         </div>
         <div class="nose"></div>
         <div class="mouth"></div>
